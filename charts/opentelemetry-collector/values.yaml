@@ -227,6 +227,8 @@ config:
 # Components configured by presets will be injected in the same way they are for `config`.
 alternateConfig: {}
 
+automountServiceAccountToken: false
+
 image:
   # If you want to use the core image `otel/opentelemetry-collector`, you also need to change `command.name` value to `otelcol`.
   repository: ""

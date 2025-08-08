@@ -36,6 +36,9 @@ spec:
         {{- include "opentelemetry-collector.component" . | nindent 8 }}
         {{- include "opentelemetry-collector.podLabels" . | nindent 8 }}
     spec:
+      {{- with .Values.automountServiceAccountToken }}
+      automountServiceAccountToken: {{ . }}
+      {{- end }}
       {{- $podValues := deepCopy .Values }}
       {{- $podData := dict "Values" $podValues "configmapSuffix" "-agent" "isAgent" true }}
       {{- include "opentelemetry-collector.pod" ($podData | mustMergeOverwrite (deepCopy .)) | nindent 6 }}

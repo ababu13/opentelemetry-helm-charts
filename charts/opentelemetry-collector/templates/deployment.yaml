@@ -39,6 +39,9 @@ spec:
         {{- include "opentelemetry-collector.component" . | nindent 8 }}
         {{- include "opentelemetry-collector.podLabels" . | nindent 8 }}
     spec:
+      {{- with .Values.automountServiceAccountToken }}
+      automountServiceAccountToken: {{ . }}
+      {{- end }}
       {{- with .Values.dnsPolicy }}
       dnsPolicy: {{ . }}
       {{- end }}
