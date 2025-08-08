@@ -1216,6 +1216,10 @@
     },
     "shareProcessNamespace": {
       "type": "boolean"
+    },
+    "automountServiceAccountToken": {
+      "type": "boolean",
+      "description": "Set automountServiceAccountToken on pod spec"
     }
   },
   "required": [
